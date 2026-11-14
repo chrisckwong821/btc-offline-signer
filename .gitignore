@@ -1,0 +1,12 @@
+# Build output
+/target
+
+# Private keys and personal params must never be committed
+*.wif
+params*.json
+!params.example.json
+.env
+
+# Files the operating system and local tools leave behind
+.DS_Store
+.claude/

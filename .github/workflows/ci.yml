@@ -1,0 +1,39 @@
+# Runs on GitHub's servers for every push and pull request: formatting, lints
+# and the full test suite.
+name: CI
+
+on:
+  push:
+  pull_request:
+
+# The workflow only reads the repository; it never writes to it.
+permissions:
+  contents: read
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  test:
+    name: Format, lint and test
+    # GitHub's Ubuntu image already has rustup and a C++ compiler, which the
+    # test-only `bitcoinconsensus` crate needs.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install the stable Rust toolchain
+        run: |
+          rustup toolchain install stable --profile minimal --component rustfmt,clippy
+          rustup default stable
+
+      - name: Check formatting
+        run: cargo fmt --check
+
+      # --locked fails if Cargo.lock is out of date, so CI tests exactly the
+      # dependency versions that are committed.
+      - name: Lint
+        run: cargo clippy --locked --all-targets -- -D warnings
+
+      - name: Test
+        run: cargo test --locked

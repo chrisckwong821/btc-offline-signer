@@ -1,0 +1,17 @@
+{
+  "network": "testnet4",
+  "utxos": [
+    {
+      "txid": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "vout": 0,
+      "amount_sat": 100000
+    }
+  ],
+  "recipients": [
+    {
+      "address": "tb1qrp33g0q5c5txsp9arysrx4k6zdkfs4nce4xj0gdcccefvpysxf3q0sl5k7",
+      "amount_sat": 30000
+    }
+  ],
+  "fee_rate_sat_per_vb": 2
+}
