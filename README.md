@@ -1,5 +1,7 @@
 # btc-offline-signer
 
+[![CI](https://github.com/chrisckwong821/btc-offline-signer/actions/workflows/ci.yml/badge.svg)](https://github.com/chrisckwong821/btc-offline-signer/actions/workflows/ci.yml)
+
 A small Rust CLI that builds and signs a Bitcoin transfer transaction **without any network access**, and prints it as hex ready to broadcast.
 
 ```
